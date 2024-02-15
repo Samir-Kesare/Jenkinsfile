@@ -1,5 +1,6 @@
 node {
-    stage('Checkout GIT') {
+    try {
+    stage('GIT Checkout') {
         checkout scm: [
             $class: 'GitSCM',
             branches: [[name: '*/main']],
@@ -14,7 +15,15 @@ node {
         withSonarQubeEnv(installationName: 'sq1') { 
           sh './mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
         }
+    }    
+    } catch (e) {
+        echo 'Static Code Analysis Failed'
+        cleanWs()
+        throw e
+    } finally {
+        def currentResult = currentBuild.result ?: 'SUCCESS'
+        if ((currentResult == 'UNSTABLE')||(currentResult == 'ABORTED')) {
+            cleanWs()
+        }
     }
-  
 }
-
