@@ -33,11 +33,11 @@ pipeline {
         }
         success {
             sh "ls $WORKSPACE/"
-            echo 'Compiled Successfully !'
+            echo 'DP check Successfull !'
             sh 'tree $WORKSPACE/'
         }
         failure {
-            echo 'Compilation Failed !'
+            echo 'DP check Failed !'
         }
     }
 }
