@@ -8,12 +8,11 @@ pipeline {
                     def gitCommit = sh(script: 'git log -1 --pretty=%an', returnStdout: true).trim()
                     def gitCommitMsg = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
                     
-                    // Check if commit sign-off is present
+                    
                     if (gitCommitMsg.contains('Signed-off-by:')) {
                         echo "Last commit by ${gitCommit} has a sign-off."
                     } else {
-                        // Iterate through usernames and find matching email and name
-                        def usernameEmailMap = [
+                       
                             def usernameEmailMap = [
                                 'vikram445': 'vikram.bisht@opstree.com',
                                 'aakashtripathi-snaatak': 'aakash.tripathi.snaatak@mygurukulam.co',
@@ -30,7 +29,7 @@ pipeline {
                                 'Khushi Malhotra': 'khushi.malhotra.snaatak@mygurukulam.co' 
                               ]
 
-                        ]
+                        
                         
                         def email = usernameEmailMap[gitCommit]
                         
