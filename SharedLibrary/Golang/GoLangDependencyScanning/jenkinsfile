@@ -1,0 +1,14 @@
+@Library('snaatak-p7') _
+def golangDependencyScanning = new org.avengers.template.golangdependencyscanning()
+
+node {
+    
+    def url = 'https://https://github.com/OT-MICROSERVICES/employee-api.git'
+    def creds = 'shikha_cred'
+    def branch = 'main'
+    def depVersion = '9.0.9'
+    def javaVersion = '17'
+    
+    golangdependencyscanning.call(url, creds, branch, depVersion, javaVersion)
+    
+}
