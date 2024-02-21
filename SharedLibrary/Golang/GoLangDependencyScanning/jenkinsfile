@@ -1,5 +1,5 @@
 @Library('snaatak-p7') _
-def golangDependencyScanning = new org.avengers.template.golangdependencyscanning()
+def golangdependencyscanning = new org.avengers.template.golangdependencyscanning()
 
 node {
     
