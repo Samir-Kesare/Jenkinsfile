@@ -3,8 +3,8 @@ def golangDependencyScanning = new org.avengers.template.golangdependencyscannin
 
 node {
     
-    def url = 'https://https://github.com/OT-MICROSERVICES/employee-api.git'
-    def creds = 'shikha_cred'
+    def url = 'https://github.com/CodeOps-Hub/Employee-API.git'
+    def creds = 'shikha-cred'
     def branch = 'main'
     def depVersion = '9.0.9'
     def javaVersion = '17'
