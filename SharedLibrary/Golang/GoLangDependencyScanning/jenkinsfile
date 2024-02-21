@@ -1,5 +1,5 @@
 @Library('snaatak-p7') _
-def golangdependencyscanning = new org.avengers.template.golangdependencyscanning()
+def dependencyscanning = new org.avengers.template.golangdependencyscanning()
 
 node {
     
@@ -9,6 +9,6 @@ node {
     def depVersion = '9.0.9'
     def javaVersion = '17'
     
-    golangdependencyscanning.call(url, creds, branch, depVersion, javaVersion)
+    dependencyscanning.call(url, creds, branch, depVersion, javaVersion)
     
 }
